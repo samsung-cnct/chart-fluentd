@@ -9,10 +9,12 @@ keywords:
   - docker 
   - fluentd 
   - kubernetes 
-home: https://www.fluentd.org/
-icon: https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png
+home: https://github.com/samsung-cnct/chart-fluentd
 sources:
   - https://www.fluentd.org/
+  - https://github.com/samsung-cnct/chart-fluentd
 maintainers:
-  - name: dstorck
-    email: deirdre.storck@gmail.com
+  - name: Samsung CNCT OSS Maintainers
+    email: oss-maintainer@samsung-cnct.io
+icon: https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png
+engine: gotpl
