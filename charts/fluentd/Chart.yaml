@@ -1,0 +1,17 @@
+name: fluentd
+version: 0.1.0
+description: Fluentd chart for routing logs
+keywords:
+  - logging
+  - journald
+  - docker
+  - kernel
+  - fluent
+home: https://github.com/samsung-cnct/chart-fluentd
+sources:
+  - https://github.com/samsung-cnct/chart-fluentd
+maintainers:
+  - name: Samsung CNCT OSS Maintainers
+    email: oss-maintainer@samsung-cnct.io
+icon: https://github.com/fluent/fluentd
+engine: gotpl
