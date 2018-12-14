@@ -1,20 +1,20 @@
 name: fluentd
-version: 0.1.0
+version: 0.1.1
 appVersion: 1.2.4
 description: A Fluentd Helm chart for Kubernetes.
-keywords: 
-  - logging
-  - elasticsearch 
-  - s3 
-  - docker 
-  - fluentd 
-  - kubernetes 
+keywords:
+- logging
+- elasticsearch
+- s3
+- docker
+- fluentd
+- kubernetes
 home: https://github.com/samsung-cnct/chart-fluentd
 sources:
-  - https://www.fluentd.org/
-  - https://github.com/samsung-cnct/chart-fluentd
+- https://www.fluentd.org/
+- https://github.com/samsung-cnct/chart-fluentd
 maintainers:
-  - name: Samsung CNCT OSS Maintainers
-    email: oss-maintainer@samsung-cnct.io
+- name: Samsung CNCT OSS Maintainers
+  email: oss-maintainer@samsung-cnct.io
 icon: https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png
 engine: gotpl
