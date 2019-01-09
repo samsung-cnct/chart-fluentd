@@ -12,5 +12,8 @@ configs:
     timeout: 600
     retries: 1
     release: fluentd
+    values: 
+      - key: enableTLS
+        value: false 
 prod:
   doDeploy: none
