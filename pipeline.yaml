@@ -9,13 +9,16 @@ type: chart
 #    value: image
 configs:
   - chart: fluentd
-    timeout: 400
+    timeout: 600
     retries: 1
     release: fluentd
     test:
       values: 
         - key: enableTLS
           value: false 
+    values: 
+      - key: enableTLS
+        value: tomato
 prod:
   doDeploy: none
 
