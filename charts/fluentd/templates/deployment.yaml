@@ -89,12 +89,16 @@ spec:
               mountPath: /etc/fluent/config.d
             - name: buffer
               mountPath: "/var/log/fluentd-buffers"
+            {{- if .Values.enableTLS }}
             - name: certs
               mountPath: "/fluentd/etc/ssl"
+            {{- end }}
       volumes: 
+        {{- if .Values.enableTLS }}
         - name: certs
           secret: 
             secretName: fluentd-tls 
+        {{- end }}
         - name: config-volume-{{ template "fluentd.fullname" . }}
           configMap:
             name: {{ template "fluentd.fullname" . }}

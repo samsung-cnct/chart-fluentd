@@ -26,6 +26,8 @@ awsKeyId: keyId
 s3Bucket: sampleBucketName
 s3Region: sampleBucketRegion
 
+enableTLS: false 
+
 plugins: 
   - fluent-plugin-s3
 
