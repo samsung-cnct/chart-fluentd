@@ -9,7 +9,7 @@ type: chart
 #    value: image
 configs:
   - chart: fluentd
-    timeout: 600
+    timeout: 400
     retries: 1
     release: fluentd
     test:
