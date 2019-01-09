@@ -1,33 +1,34 @@
-# ---
-# type: chart
-# #
-# #rootfs:
-# #  - image: samsung_cnct/fluentd-container
-# #    dockerContext: rootfs/fluentd
-# #    context: fluentd
-# #    chart: fluentd
-# #    value: image
-# configs:
-#   - chart: fluentd
-#     timeout: 600
-#     retries: 1
-#     release: fluentd
-#     values: 
-#       - key: enableTLS
-#         value: false 
-# prod:
-#   doDeploy: none
-
-
-type: chart 
-deployments:
-  - chart: fluentd 
+---
+type: chart
+#
+#rootfs:
+#  - image: samsung_cnct/fluentd-container
+#    dockerContext: rootfs/fluentd
+#    context: fluentd
+#    chart: fluentd
+#    value: image
+configs:
+  - chart: fluentd
     timeout: 600
-    retries: 1 
-    release: fluentd 
-    test: 
+    retries: 1
+    release: fluentd
+    test:
       values: 
         - key: enableTLS
-          value: false       
-prod: 
+          value: false 
+prod:
   doDeploy: none
+
+# 
+# type: chart 
+# deployments:
+#   - chart: fluentd 
+#     timeout: 600
+#     retries: 1 
+#     release: fluentd 
+#     test: 
+#       values: 
+#         - key: enableTLS
+#           value: false       
+# prod: 
+#   doDeploy: none
