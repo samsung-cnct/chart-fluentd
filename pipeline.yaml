@@ -1,5 +1,5 @@
 ---
-type: chart
+# type: chart
 #
 #rootfs:
 #  - image: samsung_cnct/fluentd-container
@@ -7,31 +7,31 @@ type: chart
 #    context: fluentd
 #    chart: fluentd
 #    value: image
-configs:
-  - chart: fluentd
-    timeout: 600
-    retries: 1
-    release: fluentd
-    test:
-      values: 
-        - key: enableTLS
-          value: false 
-    values: 
-      - key: enableTLS
-        value: tomato
-prod:
-  doDeploy: none
-
-# 
-# type: chart 
-# deployments:
-#   - chart: fluentd 
+# configs:
+#   - chart: fluentd
 #     timeout: 600
-#     retries: 1 
-#     release: fluentd 
-#     test: 
+#     retries: 1
+#     release: fluentd
+#     test:
 #       values: 
 #         - key: enableTLS
-#           value: false       
-# prod: 
+#           value: false 
+#     values: 
+#       - key: enableTLS
+#         value: tomato
+# prod:
 #   doDeploy: none
+
+
+type: chart 
+deployments:
+  - chart: fluentd 
+    timeout: 600
+    retries: 1 
+    release: fluentd 
+    test: 
+      values: 
+        - key: enableTLS
+          value: false       
+prod: 
+  doDeploy: none
