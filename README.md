@@ -1,5 +1,7 @@
 # fluentd helm chart for kubernetes 
 
+[![Build Status][14]](https://jenkins.migrations.cnct.io/job/pipeline-fluentd/job/master)
+
 [Fluentd][1] is an open source data collector, which lets you unify data collection and consumption for a better use and understanding of data.
 This chart is meant to be used with [this fluent-bit chart][2] on a kubernetes cluster. Fluent-bit will be deployed as a daemonset using [this image][3] to collect all logs and will then push them to fluentd using the [in_forward protocol][4], secured by TLS. FLuentd will pass on logs to [elasticsearch][5], secured by [xpack][6], and to [s3][7] for long term archival. 
 
@@ -69,5 +71,7 @@ helm install ./fluentd/ --name fluentd -f <new_values.yaml>
 [11]: https://www.elastic.co/products/elasticsearch
 [12]: https://www.fluentd.org/plugins
 [13]: https://kubernetes.io/docs/concepts/configuration/secret/
+[14]: https://jenkins.migrations.cnct.io/buildStatus/icon?job=pipeline-fluentd/master
+
 
 
