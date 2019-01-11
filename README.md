@@ -9,7 +9,6 @@ This system sends on all logs to [elasticsearch][11]. To connect correctly, user
 --set fluentESUser=your-username,fluentESPassword=your-password
 ```
 
-
 ### Log Archival using s3 
 Fluentd has an output plugin to push logs to [s3][7]. This plugin must be included in the `values.yaml` file under the `plugins` section to be installed.  You must first go into s3 and create the bucket and path that you wish to push to. Then either use or create an IAM role that has s3 read/write access. 
 
@@ -20,7 +19,8 @@ You will also need to provide s3 bucket name and region at chart installation.
 For example: `s3Bucket=myLogs` and `s3Region=us-west-2`
 
 ### Secure forward of fluentbit logs using TLS 
-Firstly, client and server certs must be created. For a quick walkthrough of how this can work with fluen-bit and fluentd, read [this blog][10]
+This feature is turned off by default. To enable it, uncomment the `<transport tls>` section of the `forward-input.conf` configmap in `values.yaml`.  Comment out the `bind` field, and turn the `enableTLS` value in the same file to `true`.
+Once enabled, client and server certs must be created. For a quick walkthrough of how this can work with fluent-bit and fluentd, read [this blog][10]
 For fluent-bit to connect and securely send logs to fluentd, TLS information must be passed in as a [kubernetes secret][13] to the cluster before this chart can be deployed. 
 ```
 kubectl create secret generic fluentd-tls \
