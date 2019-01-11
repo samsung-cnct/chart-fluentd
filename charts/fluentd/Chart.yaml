@@ -1,5 +1,5 @@
 name: fluentd
-version: 0.1.1
+version: 0.1.2
 appVersion: 1.2.4
 description: A Fluentd Helm chart for Kubernetes.
 keywords:
