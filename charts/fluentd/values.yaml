@@ -24,6 +24,7 @@ fluentdPrivateKeyPassphrase: fbit
 awsSecKey: secretKey 
 awsKeyId: keyId
 s3Bucket: sampleBucketName
+s3BucketPath: logs/
 s3Region: sampleBucketRegion
 
 enableTLS: false 
@@ -124,7 +125,7 @@ configMaps:
         s3_bucket "#{ENV['S3_BUCKET']}"
         s3_region "#{ENV['S3_REGION']}"
         auto_create_bucket false 
-        path logs/
+        path "#{ENV['S3_BUCKET_PATH']}"
         buffer_path /var/log/fluent/s3
         time_slice_format %Y%m%d%H
         time_slice_wait 2m
@@ -158,7 +159,7 @@ configMaps:
         s3_bucket "#{ENV['S3_BUCKET']}"
         s3_region "#{ENV['S3_REGION']}"
         auto_create_bucket false
-        path logs/
+        path "#{ENV['S3_BUCKET_PATH']}"
         buffer_path /var/log/fluent/s3
         time_slice_format %Y%m%d%H
         time_slice_wait 2m
