@@ -55,6 +55,8 @@ spec:
               value: {{ .Values.fluentESPassword | quote }}
             - name: S3_BUCKET 
               value: {{ .Values.s3Bucket }}
+            - name: S3_BUCKET_PATH
+              value: {{ .Values.s3BucketPath }}
             - name: S3_REGION 
               value: {{ .Values.s3Region }}
             - name: FLUENTD_PRIVATE_KEY_PASSPHRASE
