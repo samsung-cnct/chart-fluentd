@@ -94,7 +94,7 @@ spec:
               containerPort: 9880
               protocol: TCP
           volumeMounts:
-            - name: config-volume-{{ template "fluentd.fullname" . }}
+            - name: {{ template "fluentd.fullname" . }}
               mountPath: /etc/fluent/config.d
             - name: buffer
               mountPath: "/var/log/fluentd-buffers"
@@ -108,7 +108,7 @@ spec:
           secret: 
             secretName: fluentd-tls 
         {{- end }}
-        - name: config-volume-{{ template "fluentd.fullname" . }}
+        - name: template "fluentd.fullname" . }}
           configMap:
             name: {{ template "fluentd.fullname" . }}
         - name: buffer
