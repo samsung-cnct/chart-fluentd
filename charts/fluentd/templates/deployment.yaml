@@ -7,6 +7,13 @@ metadata:
     chart: {{ template "fluentd.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+    app.kubernetes.io/name: {{ template "fluentd.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+    app.kubernetes.io/component: infrastructure
+    app.kubernetes.io/part-of: logging-client
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ template "namewithversion" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
