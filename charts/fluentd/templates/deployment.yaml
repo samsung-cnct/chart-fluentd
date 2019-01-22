@@ -71,12 +71,12 @@ spec:
             - name: AWS_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "fluentd.fullname" . }}-auth
+                  name: {{ template "fluentd.fullnameshort" . }}-auth
                   key: awsSecKey
             - name: AWS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "fluentd.fullname" . }}-auth
+                  name: {{ template "fluentd.fullnameshort" . }}-auth
                   key: awsKeyId
             {{- range $key, $value := .Values.env }}
             - name: {{ $key | quote }}
@@ -94,7 +94,7 @@ spec:
               containerPort: 9880
               protocol: TCP
           volumeMounts:
-            - name: config-volume-{{ template "fluentd.fullname" . }}
+            - name: {{ template "fluentd.fullnameshort" . }}-vol
               mountPath: /etc/fluent/config.d
             - name: buffer
               mountPath: "/var/log/fluentd-buffers"
@@ -108,7 +108,7 @@ spec:
           secret: 
             secretName: fluentd-tls 
         {{- end }}
-        - name: config-volume-{{ template "fluentd.fullname" . }}
+        - name: {{ template "fluentd.fullnameshort" . }}-vol
           configMap:
             name: {{ template "fluentd.fullname" . }}
         - name: buffer
