@@ -15,7 +15,17 @@ This system sends on all logs to [elasticsearch][11]. To connect correctly, user
 Fluentd has an output plugin to push logs to [s3][7]. This plugin must be included in the `values.yaml` file under the `plugins` section to be installed.  You must first go into s3 and create the bucket and path that you wish to push to. Then either use or create an IAM role that has s3 read/write access. 
 
 Several pieces of information must be passed in at chart install for this to work properly, as the plugin needs access to your aws credentials, and needs to know which region and bucket you would like to push the logs to. 
-Make sure the following envs are set: `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` 
+Make sure the following keys are set: 
+
+```
+awsKeyId
+awsSecKey
+```
+These keys should be set via the `helm --set`, utilizing your AWS credentials in your environment.  e.g. 
+
+```
+--set awsKeyId="$AWS_ACCESS_KEY_ID",awsSecKey="$AWS_SECRET_ACCESS_KEY"
+```
 
 You will also need to provide s3 bucket name and region at chart installation. 
 For example: `s3Bucket=myLogs` and `s3Region=us-west-2`
