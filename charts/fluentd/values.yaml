@@ -10,6 +10,9 @@ image:
   #   - secret2
 
 output:
+  #
+  # Elasticsearch host name or IP
+  #host: es.<clustnername>.cluster.cnct.io
   host: elasticsearch
   port: 9200
   buffer_chunk_limit: 2M
@@ -118,20 +121,23 @@ configMaps:
         user "#{ENV['FLUENT_ELASTICSEARCH_USER']}"
         password "#{ENV['FLUENT_ELASTICSEARCH_PASSWORD']}"
       </store>
-      <store>
-        @type s3
-        aws_key_id "#{ENV['AWS_KEY_ID']}"
-        aws_sec_key "#{ENV['AWS_SECRET_KEY']}"
-        s3_bucket "#{ENV['S3_BUCKET']}"
-        s3_region "#{ENV['S3_REGION']}"
-        auto_create_bucket false 
-        path "#{ENV['S3_BUCKET_PATH']}"
-        buffer_path /var/log/fluent/s3
-        time_slice_format %Y%m%d%H
-        time_slice_wait 2m
-        utc
-        buffer_chunk_limit 256m
-      </store>
+      #
+      # Uncomment to enable S3 storage for archival
+      #
+      #  <store>
+      #  @type s3
+      #  aws_key_id "#{ENV['AWS_KEY_ID']}"
+      #  aws_sec_key "#{ENV['AWS_SECRET_KEY']}"
+      #  s3_bucket "#{ENV['S3_BUCKET']}"
+      #  s3_region "#{ENV['S3_REGION']}"
+      #  auto_create_bucket false 
+      #  path "#{ENV['S3_BUCKET_PATH']}"
+      #  buffer_path /var/log/fluent/s3
+      #  time_slice_format %Y%m%d%H
+      #  time_slice_wait 2m
+      #  utc
+      #  buffer_chunk_limit 256m
+      #</store>
     </match>
     
     <match **>
@@ -152,20 +158,23 @@ configMaps:
         user "#{ENV['FLUENT_ELASTICSEARCH_USER']}"
         password "#{ENV['FLUENT_ELASTICSEARCH_PASSWORD']}"
       </store>
-      <store>
-        @type s3
-        aws_key_id "#{ENV['AWS_KEY_ID']}"
-        aws_sec_key "#{ENV['AWS_SECRET_KEY']}"
-        s3_bucket "#{ENV['S3_BUCKET']}"
-        s3_region "#{ENV['S3_REGION']}"
-        auto_create_bucket false
-        path "#{ENV['S3_BUCKET_PATH']}"
-        buffer_path /var/log/fluent/s3
-        time_slice_format %Y%m%d%H
-        time_slice_wait 2m
-        utc
-        buffer_chunk_limit 256m
-      </store>
+      #
+      # Uncomment to enable S3 storage for archival
+      #
+      #<store>
+      #  @type s3
+      #  aws_key_id "#{ENV['AWS_KEY_ID']}"
+      #  aws_sec_key "#{ENV['AWS_SECRET_KEY']}"
+      #  s3_bucket "#{ENV['S3_BUCKET']}"
+      #  s3_region "#{ENV['S3_REGION']}"
+      #  auto_create_bucket false
+      #  path "#{ENV['S3_BUCKET_PATH']}"
+      #  buffer_path /var/log/fluent/s3
+      #  time_slice_format %Y%m%d%H
+      #  time_slice_wait 2m
+      #  utc
+      #  buffer_chunk_limit 256m
+      #</store>
     </match>
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
